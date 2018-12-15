@@ -4,7 +4,7 @@
 #include <malloc.h>
 
 #include "tbtreeitem.h"
-#include "tbtree.h"
+// #include "tbtree.h"
 #include "btree_options.h"
 
 using namespace BTreeOptions;
@@ -41,6 +41,11 @@ public:
 
     size_t Search(KeyType k);
     size_t Insert(TBTreeItem ins);
+    TNodeItem Pop(const size_t n);
+    TNodeItem Pop(KeyType k) { // UNSAFE
+        const size_t n = Search(k);
+        return Pop(n);
+    }
 
     void SplitLeftChild(size_t n);
     TBTreeNode *Split();

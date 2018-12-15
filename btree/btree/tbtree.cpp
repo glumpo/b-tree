@@ -3,8 +3,8 @@
 
 // That will split all full nodes on the way
 bool TBTree::FindParent(KeyType    key,
-                        TBTreeNode *(&res),
-                        TBTreeNode *(&cur),
+                        TBTreeNode* (&res),
+                        TBTreeNode* (&cur),
                         size_t     &childN,
                         size_t     &n) {
     res    = nullptr;
@@ -77,6 +77,21 @@ ValueType TBTree::Search(KeyType k) {
 
     FindParent(k, parent, cur, childN, n);
     return (*cur)[n].GetVal();
+}
+
+// TODO: Запилить работу с TBTreeItem напрямую через что-то типо Data()
+ValueType TBTree::Pop(KeyType k) {
+    TBTreeNode *parent = nullptr, *cur = nullptr;
+    size_t childN = 0, n = 0;
+    FindParent(k, parent, cur, childN, n);
+
+    if (cur->Leaf) {
+        return cur->Pop(n).Val();
+    }
+    else if (cur->LeftChild(n)->Size() > MIN_NUM_OF_ELEMENTS) {
+
+    }
+
 }
 
 bool TBTree::Insert(TBTreeItem item) {

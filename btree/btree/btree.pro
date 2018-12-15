@@ -4,16 +4,16 @@
 #TARGET = btree
 
 HEADERS = \
+   $$PWD/btree_options.h \
    $$PWD/tbtree.h \
    $$PWD/tbtreeitem.h \
-    tbtreenode.h \
-    btree_options.h
+   $$PWD/tbtreenode.h
 
 SOURCES = \
    $$PWD/main.cpp \
    $$PWD/tbtree.cpp \
    $$PWD/tbtreeitem.cpp \
-    tbtreenode.cpp \
+   $$PWD/tbtreenode.cpp \
 
 INCLUDEPATH = \
     $$PWD/.

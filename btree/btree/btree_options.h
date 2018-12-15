@@ -7,6 +7,7 @@ namespace BTreeOptions {
 
 const size_t DEGREE = 2;
 const size_t MAX_NUM_OF_ELEMENTS = 2 * DEGREE - 1;
+const size_t MIN_NUM_OF_ELEMENTS =     DEGREE - 1;
 
 typedef int     KeyType;
 typedef double  ValueType;
